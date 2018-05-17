@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Hostel Shift</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/master.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript">
+
+        // ---------          After Submitting form displaying data on the same page             -----------------------
+        function showInput() {
+          alert("Submitted Successfully");
+          $(".conform").hide();
+          $(".conform2").fadeIn('slow');
+            document.getElementById('data_name').innerHTML = document.getElementById("user_name").value;
+            var $name = 'Name: ' + document.getElementById("user_name").value;
+            document.getElementById('tdata_name').innerHTML = $name;
+            document.getElementById('data_roll').innerHTML = document.getElementById('user_roll').value;
+            var $roll = "Roll No: " + document.getElementById('user_roll').value;
+            document.getElementById('tdata_roll').innerHTML = $roll;
+            document.getElementById('data_from').innerHTML = document.getElementById('user_from').value;
+            var $from = "Old Hostel: " + document.getElementById('user_from').value;
+            document.getElementById('tdata_from').innerHTML = $from;
+            document.getElementById('data_to').innerHTML = document.getElementById('user_to').value;
+            var $to = "New Hostel: " + document.getElementById('user_to').value;
+            document.getElementById('tdata_to').innerHTML = $to;
+            document.getElementById('data_room').innerHTML = document.getElementById('user_room').value;
+            var $room = "Room Alloted: " + document.getElementById('user_room').value;
+            document.getElementById('tdata_room').innerHTML = $room;
+            document.getElementById('data_date').innerHTML = document.getElementById('user_date').value;
+            var $date = "Joining Date: " + document.getElementById('user_date').value;
+            document.getElementById('tdata_date').innerHTML = $date;
+            document.getElementById('data_reason').innerHTML = document.getElementById('user_reason').value;
+            var $rea = "Reason for Shift: " + document.getElementById('user_reason').value;;
+            document.getElementById('tdata_reason').innerHTML = $rea;
+            document.getElementById('data_accnt').innerHTML = document.getElementById('user_accnt').value;
+            var $accnt = "Account No: " + document.getElementById('user_accnt').value;;
+            document.getElementById('tdata_accnt').innerHTML = $accnt;
+            //$("table").fadeIn();
+            // hover
+
+          //  val = document.getElementById("user_name").value;
+
+        }
+
+        $(document).ready(function(){
+      // --------------           Hovering         --------------------------
+      $(".conform2").hide();
+      $("#table_name").mouseenter(function(){
+             $('.a').fadeIn('slow');
+          });
+      $('.hover_bkgr_fricc').mousemove(function(){
+            $('.a').fadeOut('slow');
+      });
+      $("#table_roll").mouseenter(function(){
+             $('.b').fadeIn('slow');
+          });
+      $('.hover_bkgr_fricc').mousemove(function(){
+            $('.b').fadeOut('slow');
+      });
+      $("#table_from").mouseenter(function(){
+             $('.c').fadeIn('slow');
+          });
+      $('.hover_bkgr_fricc').mousemove(function(){
+            $('.c').fadeOut('slow');
+      });
+      $("#table_to").mouseenter(function(){
+             $('.d').fadeIn('slow');
+          });
+      $('.hover_bkgr_fricc').mousemove(function(){
+            $('.d').fadeOut('slow');
+      });
+      $("#table_room").mouseenter(function(){
+             $('.e').fadeIn('slow');
+          });
+      $('.hover_bkgr_fricc').mousemove(function(){
+            $('.e').fadeOut('slow');
+      });
+      $("#table_date").mouseenter(function(){
+             $('.f').fadeIn('slow');
+          });
+      $('.hover_bkgr_fricc').mousemove(function(){
+            $('.f').fadeOut('slow');
+      });
+      $("#table_reason").mouseenter(function(){
+             $('.g').fadeIn('slow');
+          });
+      $('.hover_bkgr_fricc').mousemove(function(){
+            $('.g').fadeOut('slow');
+      });
+      $("#table_accnt").mouseenter(function(){
+             $('.h').fadeIn('slow');
+          });
+      $('.hover_bkgr_fricc').mousemove(function(){
+            $('.h').fadeOut('slow');
+      });
+
+          //-------       Real Time Form Validation       ------------
+          $('#user_name').on('input', function() {
+            var input=$(this);
+          	var is_name = $(this).val();
+          	if(is_name){input.removeClass("invalid").addClass("valid");}
+          	else{input.removeClass("valid").addClass("invalid");}
+          });
+          $("#user_roll").on('input',function(){
+            var input=$(this);
+            var re = /[1-2][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/;
+            var is_roll = re.test(input.val());
+            if(is_roll){input.removeClass('invalid').addClass('valid');}
+            else{input.removeClass('valid').addClass('invalid');}
+          });
+          $('#user_room').on('input',function(){
+            var input = $(this);
+            var is_room = $(this).val();
+            if(is_room){input.removeClass('invalid').addClass('valid');}
+            else{input.removeClass('valid').addClass('invalid');}
+          });
+          /// Error in date checking
+          $('user_date').on('input',function(){
+            var input=$(this);
+            var re = "[0-9][0-9]/[0-1][0-9]/[1-2][0-9][0-9][0-9]";
+            var is_date = re.test(input.val());
+            if(is_date){input.removeClass('invalid').addClass('valid');}
+            else{input.removeClass('valid').addClass('invalid');}
+          });
+          $('#user_reason').keyup(function (event){
+            var input = $(this);
+            var is_reason = $(this).val();
+            console.log(is_reason);
+            if(is_reason){input.removeClass('invalid').addClass('valid');}
+            else{input.removeClass('valid').addClass('invalid');}
+          });
+          $('#user_accnt').on('input',function(){
+            var input = $(this);
+            var re = /[0-9]+/;
+            var is_accnt = re.test(input.val());
+            if(is_accnt){input.removeClass('invalid').addClass('valid');}
+            else{input.removeClass('valid').addClass('invalid');}
+          });
+        });
+      </script>
+  </head>
+  <body>
+    <div class="head">
+      <div class="logo">
+        <img src="images/logo.png" alt="">
+      </div>
+      <div class="heading">
+        <h1>Indian Institute Of Technology Guwahati</h1>
+        <h2>Guwahati - 781039</h2>
+      </div>
+    </div>
+    <div class="conform">
+    <div class="container top">
+
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h2>Hostel Shift Form</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="account-wall">
+        <div class="row">
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="login-or">
+              <hr class="hr-or">
+              <span class="span-or"></span>
+            </div>
+            <form id="hostel_form" action="" method="post" role="form">
+              <div class="form-group">
+                <label for="name">NAME:</label>
+                <input type="text" id="user_name" class="form-control" name="name" required placeholder="Enter your Name">
+              </div>
+              <div class="form-group">
+                <label for="user_roll">ROLL NO.</label>
+                <input type="number" id="user_roll" class="form-control" name="roll" required placeholder="Enter Your RollNo">
+              </div>
+              <div class="form-group">
+                <label for="user_from">HOSTEL FROM:</label>
+                <select class="form-control" name="from" id="user_from">
+                <option value="Kameng">Kameng</option>
+                <option value="Barak">Barak</option>
+                <option value="Umium">Umium</option>
+                <option value="Manas">Manas</option>
+                <option value="Brahmaputra">Brahmaputra</option>
+                <option value="Dihing">Dihing</option>
+                <option value="Dibang">Dibang</option>
+                <option value="Kapili">Kapili</option>
+                <option value="Siang">Siang</option>
+                <option value="Lohit">Lohit</option>
+                <option value="Dhansiri">Dhansiri</option>
+                <option value="Subansiri">Subansiri</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="user_to">HOSTEL SHIFTED TO:</label>
+                <select class="form-control" name="to" id="user_to">
+                  <option value="Kameng">Kameng</option>
+                  <option value="Barak">Barak</option>
+                  <option value="Umium">Umium</option>
+                  <option value="Manas">Manas</option>
+                  <option value="Brahmaputra">Brahmaputra</option>
+                  <option value="Dihing">Dihing</option>
+                  <option value="Dibang">Dibang</option>
+                  <option value="Kapili">Kapili</option>
+                  <option value="Siang">Siang</option>
+                  <option value="Lohit">Lohit</option>
+                  <option value="Dhansiri">Dhansiri</option>
+                  <option value="Subansiri">Subansiri</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="user_room">ALLOTED ROOM NO IN NEW HOSTEL</label>
+                <input type="text" id="user_room" class="form-control" required placeholder="Enter Your Alloted Room No" name="alloted">
+              </div>
+              <div class="form-group">
+                <label for="user_date">DATE OF JOINING:</label>
+                <input type="date" id="user_date" class="form-control" name="join_date" required placeholder="Enter Your Date of Joining">
+              </div>
+              <div class="form-group">
+                <label for="user_reason">REASON FOR SHIFT:</label>
+                <textarea name="reason" class="form-control" rows="3" cols="50" required placeholder="Write here reason for shift..." id="user_reason"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="user_accnt">BANK ACCOUNT NO:</label>
+                <input type="number" class="form-control" id="user_accnt" name="accnt">
+              </div>
+              <button type="submit" onclick='showInput(); return false' class="btn btn btn-primary btn-lg">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---         Tabular form of submitted data                   --->
+    <div class="conform2">
+      <div class="container tabledata">
+        <div class="tableimage">
+        <img  src="images/tick.png" alt="">
+      </div>
+          <div class="tablehead">
+        <h1>The form was submitted successfully!!!</h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="summary">
+        <h1>Summary of the form is shown below:</h1>
+      </div>
+    </div>
+      <div class="container">
+        <table class="table table-hover table-bordered ">
+          <tr >
+            <div>
+              <th><div id="table_name" >NAME:</div></th>
+              <td><span id='data_name'></span></td>
+            </div>
+          </tr>
+          <tr>
+            <th class="thead-dark"><div id="table_roll">ROLL NO:</div></th>
+            <td><span id="data_roll"></span></td>
+          </tr>
+          <tr>
+            <th class="thead-dark"><div id=table_from>HOSTEL FROM:</div></th>
+            <td><span id="data_from"></span></td>
+          </tr>
+          <tr>
+            <th class="thead-dark"><div id="table_to">HOSTEL TO:</div></th>
+            <td><span id="data_to"></span></td>
+          </tr>
+          <tr>
+            <th class="thead-dark"><div id="table_room">ALLOTTED ROOM NO IN NEW HOSTEL:</div></th>
+            <td><span id="data_room"></span></td>
+          </tr>
+          <tr>
+            <th class="thead-dark"><div id="table_date">DATE OF JOINING:</div></th>
+            <td><span id="data_date"></span></td>
+          </tr>
+          <tr>
+            <th class="thead-dark"><div id="table_reason">REASON FOR SHIFT:</div></th>
+            <td><span id="data_reason"></span></td>
+          </tr>
+          <tr>
+            <th ><div id="table_accnt">BANK ACCOUNT NO:</div></th>
+            <td><span id="data_accnt"></span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!---For Hovering Purpose--->
+    <div class="hover_bkgr_fricc a">
+      <span class="helper"></span>
+      <div><p><span id="tdata_name"></span></p></div>
+    </div>
+    <div class="hover_bkgr_fricc b">
+      <span class="helper"></span>
+      <div><p><span id="tdata_roll"></span></p></div>
+    </div>
+    <div class="hover_bkgr_fricc c">
+      <span class="helper"></span>
+      <div><p><span id="tdata_from"></span></p></div>
+    </div>
+    <div class="hover_bkgr_fricc d">
+      <span class="helper"></span>
+      <div><p><span id="tdata_to"></span></p></div>
+    </div>
+    <div class="hover_bkgr_fricc e">
+      <span class="helper"></span>
+      <div><p><span id="tdata_room"></span></p></div>
+    </div>
+    <div class="hover_bkgr_fricc f">
+      <span class="helper"></span>
+      <div><p><span id="tdata_date"></span></p></div>
+    </div>
+    <div class="hover_bkgr_fricc g">
+      <span class="helper"></span>
+      <div><p><span id="tdata_reason"></span></p></div>
+    </div>
+    <div class="hover_bkgr_fricc h">
+      <span class="helper"></span>
+      <div><p><span id="tdata_accnt"></span></p></div>
+    </div>
+  </body>
+</html>
